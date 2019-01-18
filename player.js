@@ -99,6 +99,7 @@ let magic ={
     if (this.stats.mp  >= 20){
       this.stats.mp= this.stats.sp - 20;
       let beam = Math.ceil(this.stats.sp*1.5);
+      return beam
     }    
   },
   pyroBall:function(){
