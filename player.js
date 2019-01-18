@@ -45,7 +45,7 @@ let physical={
     let bonus = 0.5*this.stats.atk*Math.random();
     return baseDamage+bonus;
   },
-  charge = function(){
+  charge: function(){
     let pain = Math.random;
     let bonus = 0.5*this.stats.atk*Math.random();
     if (pain <0.50){
@@ -55,8 +55,24 @@ let physical={
     else{
       return this.stats.atk+bonus;
     }
-  }
+  },
+  gohun: function(){
+    let baseDamage = this.stats.atk;
+    let bonus = 0.5*this.stats.atk*Math.random()*2;
+    return baseDamage+bonus;
+  },
+  furyStrike: function(){
+    let pain = Math.random;
+    let bonus = 0.5*this.stats.atk*Math.random()*q;
+    if (pain <0.50){
+      this.stats.hp = this.stats.hp - this.stats.atk/2;
+      return this.stats.atk+bonus;
+    }
+    else{
+      return this.stats.atk+bonus;
 
+  }
+}
 }
 
 let magic ={
@@ -78,9 +94,19 @@ let magic ={
         return 4*pump;
       }
     }
+  },
+  hyperBeam: function(){
+    if (this.stats.mp  >= 20){
+      this.stats.mp= this.stats.sp - 20;
+      let beam = Math.ceil(this.stats.sp*1.5);
+    }    
+  },
+  pyroBall:function(){
+    if (this.stats.mp  >= 6){
+      this.stats.mp = this.stats.mp - 6;
+      let ball = 
   }
 }
-
 
 
 
