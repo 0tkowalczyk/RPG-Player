@@ -105,14 +105,23 @@ let magic ={
   pyroBall:function(){
     if (this.stats.mp  >= 6){
       this.stats.mp = this.stats.mp - 6;
-      let ball = 
+      let baseDamage = 0.88*this.stats.sp;
+      let bonus = 0.32* Math.random()
+      let ball = Math.ceil(baseDamage+bonus)
+      return ball
   }
+},
+earthquake: function(){
+  if (this.stats.mp >= 10)
+  let baseDamage = this.stats.sp*1.25;
+  let bonus = 0.25*Math.random
+  if (pain <0.50){
+    this.stats.hp = this.stats.hp - this.stats.sp/3;
+    return this.stats.atk+bonus;
+  }
+  else baseDamage+bonus;
 }
-
-
-
-
-
+}
 
 
 
