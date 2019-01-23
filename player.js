@@ -11,16 +11,68 @@ let p1Stats = {
 
 }
 
-let p2Name = "Sion";
+let p1Moves{
+  charge: function(){
+    let pain = Math.random;
+    let bonus = 0.5*this.stats.atk*Math.random();
+    if (pain <0.50){
+      this.stats.hp = this.stats.hp - this.stats.atk/4;
+      return this.stats.atk+bonus;
+    }
+    else{
+      return this.stats.atk+bonus;
+    }
+  },
+  gohun: function(){
+    let baseDamage = this.stats.atk;
+    let bonus = 0.5*this.stats.atk*Math.random()*2;
+    return baseDamage+bonus;
+  },
+  hyperBeam: function(){
+    if (this.stats.mp  >= 20){
+      this.stats.mp= this.stats.sp - 20;
+      let beam = Math.ceil(this.stats.sp*1.5);
+      return beam
+    }    
+  },
+  pyroBall:function(){
+    if (this.stats.mp  >= 6){
+      this.stats.mp = this.stats.mp - 6;
+      let baseDamage = 0.88*this.stats.sp;
+      let bonus = 0.32* Math.random()
+      let ball = Math.ceil(baseDamage+bonus)
+      return ball
+    }
+  }
+}
 
-let p2Stats = {
-  hp:150,
-  mp:50,
-  atk:20,
-  def:60,
-  sp:40
+let p2Moves{
+  charge: function(){
+    let pain = Math.random;
+    let bonus = 0.5*this.stats.atk*Math.random();
+    if (pain <0.50){
+      this.stats.hp = this.stats.hp - this.stats.atk/4;
+      return this.stats.atk+bonus;
+    }
+    else{
+      return this.stats.atk+bonus;
+    },
+    furyStrike: function(){
+      let pain = Math.random;
+      let bonus = 0.5*this.stats.atk*Math.random()*q;
+      if (pain <0.50){
+        this.stats.hp = this.stats.hp - this.stats.atk/2;
+        return this.stats.atk+bonus;
+      }
+      else{
+        return this.stats.atk+bonus;
+  
+    }
+
+
 
 }
+
 
 let battle = {
 
@@ -35,8 +87,22 @@ let battle = {
     if (this.stats.hp <0){
       this.tats.hp = 0;
     }
+  },
+  earthquake: function(){
+    if (this.stats.mp >= 10)
+    let baseDamage = this.stats.sp*1.25;
+    let bonus = 0.25*Math.random
+    if (pain <0.50){
+      this.stats.hp = this.stats.hp - this.stats.sp/3;
+      return this.stats.atk+bonus;
+    }
+    else baseDamage+bonus;
+  },
+  razorPunch: function(){
+    let baseDamage = this.stats.atk*0.75;
+    let bonus = 0.5*this.stats.atk*Math.random();
+    return baseDamage+bonus;
   }
-
 }
 
 let physical={
