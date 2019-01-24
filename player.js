@@ -11,7 +11,7 @@ let p1Stats = {
 
 }
 
-let p1Moves{
+let p1Moves = {
   charge: function(){
     let pain = Math.random;
     let bonus = 0.5*this.stats.atk*Math.random();
@@ -46,7 +46,7 @@ let p1Moves{
   }
 }
 
-let p2Moves{
+let p2Moves ={
   charge: function(){
     let pain = Math.random;
     let bonus = 0.5*this.stats.atk*Math.random();
@@ -56,6 +56,7 @@ let p2Moves{
     }
     else{
       return this.stats.atk+bonus;
+    }
     },
     furyStrike: function(){
       let pain = Math.random;
@@ -66,42 +67,76 @@ let p2Moves{
       }
       else{
         return this.stats.atk+bonus;
-  
-    }
-
-
-
+      }
+    },
+    earthquake: function(){
+      if (this.stats.mp >= 10)
+      let baseDamage = this.stats.sp*1.25;
+      let bonus = 0.25*Math.random
+      if (pain <0.50){
+        this.stats.hp = this.stats.hp - this.stats.sp/3;
+        return this.stats.atk+bonus;
+      }
+      else baseDamage+bonus;
+    },
+    pyroBall:function(){
+      if (this.stats.mp  >= 6){
+        this.stats.mp = this.stats.mp - 6;
+        let baseDamage = 0.88*this.stats.sp;
+        let bonus = 0.32* Math.random()
+        let ball = Math.ceil(baseDamage+bonus)
+        return ball}
+  }
 }
 
-
-let battle = {
+let p1Battle = {
 
   attack: function(){
-    if(mv=1){
-      return this.move.punch;
+    if(mv==1){
+      return this.move.charge();
+    }
+    if(mv==2){
+      return this.move.gohun();
+    }
+    if(mv==1){
+      return this.move.hyperBeam();
+    }
+    if(mv==1){
+      return this.move.punch();
     }
   },
   defend: function(){
     let rawDamage = atkmv - this.stats.def;
     this.stats.hp = this.stats.hp - rawDamage;
-    if (this.stats.hp <0){
-      this.tats.hp = 0;
+    if (this.stats.hp <=0){
+      this.stats.hp = this.stats.hp - 1;
+    }
+  }
+}
+
+
+let p2Battle = {
+
+  attack: function(){
+    if(mv==1){
+      return this.move.charge();
+    }
+    if(mv==2){
+      return this.move.furyStrike();
+    }
+    if(mv==1){
+      return this.move.earthquake();
+    }
+    if(mv==1){
+      return this.move.pyroBall();
     }
   },
-  earthquake: function(){
-    if (this.stats.mp >= 10)
-    let baseDamage = this.stats.sp*1.25;
-    let bonus = 0.25*Math.random
-    if (pain <0.50){
-      this.stats.hp = this.stats.hp - this.stats.sp/3;
-      return this.stats.atk+bonus;
+  defend: function(){
+    let rawDamage = atkmv - this.stats.def;
+    this.stats.hp = this.stats.hp - rawDamage;
+    if (this.stats.hp <=0){
+      this.stats.hp = this.stats.hp - 1;
     }
-    else baseDamage+bonus;
-  },
-  razorPunch: function(){
-    let baseDamage = this.stats.atk*0.75;
-    let bonus = 0.5*this.stats.atk*Math.random();
-    return baseDamage+bonus;
   }
 }
 
